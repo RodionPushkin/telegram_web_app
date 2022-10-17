@@ -1,2 +1,0 @@
-"use strict";(self["webpackChunktelegram_web_app"]=self["webpackChunktelegram_web_app"]||[]).push([[443],{2304:function(e,t,a){a.r(t),a.d(t,{default:function(){return p}});var n=a(3396);const r={class:"about"};function u(e,t){return(0,n.wg)(),(0,n.iD)("div",r," about ")}var c=a(89);const s={},o=(0,c.Z)(s,[["render",u]]);var p=o}}]);
-//# sourceMappingURL=about.668b8f40.js.map
