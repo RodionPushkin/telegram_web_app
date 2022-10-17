@@ -1,5 +1,5 @@
 let tg = window.Telegram.WebApp; //получаем объект webapp телеграма 
-
+console.log(tg);
 tg.expand(); //расширяем на все окно  
 
 tg.MainButton.text = "Changed Text"; //изменяем текст кнопки 
@@ -28,6 +28,7 @@ btnED.addEventListener('click', function () { //вешаем событие на
 });
 Telegram.WebApp.onEvent('mainButtonClicked', function () {
   tg.sendData("some string that we need to send");
+  tg.close()
   //при клике на основную кнопку отправляем данные в строковом виде
 });
 let usercard = document.getElementById("usercard"); //получаем блок usercard 
