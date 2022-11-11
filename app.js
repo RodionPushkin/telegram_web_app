@@ -50,7 +50,7 @@ document.getElementById('search').addEventListener('input',({target})=>{
             .then(response => response.json()).then((data) => {
                 console.log(data)
                 data.items.forEach(item=>{
-                    document.getElementById('container').innerHTML += `<div class="card"><h1>Вакансия: ${item.vacancy.name}</h1><h2>Адрес: ${item.vacancy.address ? item.vacancy.address : 'не указано'}</h2><h2>Зарплата:${item.vacancy.salary ? item.vacancy.salary.currency == "RUR" ? item.vacancy.salary.from+' '+'руб' : item.vacancy.salary.from+' '+item.vacancy.salary.currency : 'не указано'}</h2><h2>График работы: ${item.vacancy.schedule.name}</h2><h2>Что нужно знать: ${item.vacancy.snippet ? item.vacancy.snippet.requirement : ''}</h2><h2>Чем ты будешь заниматься: ${item.vacancy.snippet.responsibility}</h2><button>выбрать</button></div>`
+                    document.getElementById('container').innerHTML += `<div class="card"><h1>Вакансия: ${item.name}</h1><h2>Адрес: ${item.address ? item.address : 'не указано'}</h2><h2>Зарплата:${item.salary ? item.salary.currency == "RUR" ? item.salary.from+' '+'руб' : item.salary.from+' '+item.salary.currency : 'не указано'}</h2><h2>График работы: ${item.schedule.name}</h2><h2>Что нужно знать: ${item.snippet ? item.snippet.requirement : ''}</h2><h2>Чем ты будешь заниматься: ${item.snippet.responsibility}</h2><button>выбрать</button></div>`
                 })
                 setTimeout(()=>{
                     document.querySelectorAll('button').forEach(button=>{
