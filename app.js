@@ -45,7 +45,7 @@ tg.expand(); //расширяем на все окно
 // usercard.appendChild(userid); //добавляем
 // tg.MainButton.enable()
 let timer = undefined
-document.getElementById('search').on('input',({target})=>{
+document.getElementById('search').addEventListener('input',({target})=>{
     let text = String(target.value).slice(0,200)
     document.getElementById('search').value = text
     if(!timer) clearTimeout(timer);

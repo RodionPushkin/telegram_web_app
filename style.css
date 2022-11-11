@@ -88,6 +88,7 @@ body {
   font-weight: 400;
   font-size: 18px;
   font-family: 'Syncopate';
+  text-transform: uppercase;
   color: var(--black-color);
   overflow-y: overlay;
   overflow-x: hidden;
@@ -174,6 +175,8 @@ input, select {
   pointer-events: none;
   font-size: 18px;
   user-select: none;
+  font-family: 'Syncopate';
+  text-transform: uppercase;
 }
 .input input:focus ~ label {
   top: -12px;
