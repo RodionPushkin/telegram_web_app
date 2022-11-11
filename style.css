@@ -1,31 +1,185 @@
+@font-face {
+  font-family: 'Syncopate';
+  src: url('./Syncopate Bold Cyr.otf');
+  font-style: normal;
+  font-weight: normal;
+}
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -moz-osx-font-smoothing: antialiased;
+  -webkit-font-smoothing: grayscale;
+}
+
+:focus, :active {
+  outline: none;
+}
+
+a:focus, a:active {
+  outline: none;
+}
+
+nav, footer, header, aside {
+  display: block;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  line-height: 1;
+  font-size: 14px;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+input, button, textarea {
+  font-family: inherit;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+button, .button {
+  cursor: pointer;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+a, a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1, h2, h3, h4, h5, h6, a, p, span {
+  font-size: inherit;
+  font-weight: inherit;
+  color: inherit
+}
+
 body {
-  color: var(--tg-theme-text-color);
-  background: var(--tg-theme-bg-color);
+  min-height: 100vh;
+  width: 100vw;
+  font-weight: 400;
+  font-size: 18px;
+  font-family: 'Syncopate';
+  color: var(--black-color);
+  overflow-y: overlay;
+  overflow-x: hidden;
+  background: var(--white-color);
   display: flex;
   flex-direction: column;
-  align-items: center;
+}
+
+html {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+body .header {
+  flex: 0 0 auto;
+}
+
+body .main {
+  flex: 1 0 auto;
+}
+
+body .footer {
+  flex: 0 0 auto;
+}
+:root{
+  --light-color: #F7F8FF;
+  --white-color: #FFFFFF;
+  --black-color: #4D4E5A;
+  --accent-color: #3556CD;
+  --blackbutlighter-color: #CCCCD0;
+}
+.container{
+  width: 100%;
+  padding: 0 24px;
+}
+
+@media (min-width: 568px) {
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    border-radius: 100px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #8a8a8a;
+    background-clip: content-box;
+    border: 3px solid rgba(0, 0, 0, 0.0);
+    border-radius: 100px;
+  }
+  ::-webkit-scrollbar-track-piece {
+    background: rgba(0, 0, 0, 0.0);
+  }
+  ::-webkit-scrollbar-button {
+    background: rgba(0, 0, 0, 0.0);
+  }
+  ::-webkit-scrollbar-corner {
+    background: rgba(0, 0, 0, 0.0);
+  }
+}
+input, select {
+  min-width: 272px;
+  min-height: 56px;
+  font-size: 16px;
+  padding: 0 16px;
+  display: block;
+  border-radius: 4px;
+  background: var(--white-color);
+  color: var(--accent-color);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+}
+.input {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column-reverse;
+  margin-top: 24px;
+}
+.input label {
+  position: absolute;
+  top: 50%;
+  left: 16px;
+  transform: translateY(-50%);
+  transition: top 0.2s;
+  pointer-events: none;
   font-size: 18px;
+  user-select: none;
 }
-
-.hint {
-  color: var(--tg-theme-hint-color);
+.input input:focus ~ label {
+  top: -12px;
+  font-size: 16px;
 }
-
-.link {
-  color: var(--tg-theme-link-color);
-}
-
-.button {
-  background: var(--tg-theme-button-color);
-  color: var(--tg-theme-button-text-color);
-  border: none;
-  font-size: 18px;
-}
-
-.button:not(:last-child) {
-  margin-bottom: 20px
-}
-
-#usercard {
-  text-align: center;
+.input input:not(:placeholder-shown) ~ label {
+  top: -12px;
+  font-size: 16px;
 }
