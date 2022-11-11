@@ -26,11 +26,7 @@ tg.expand(); //расширяем на все окно
 //     tg.MainButton.enable() //показываем
 //   }
 // });
-// Telegram.WebApp.onEvent('mainButtonClicked', function () {
-//   tg.sendData("some string that we need to send");
-//   tg.close()
-//   //при клике на основную кнопку отправляем данные в строковом виде
-// });
+
 // let usercard = document.getElementById("usercard"); //получаем блок usercard
 //
 // let profName = document.createElement('p'); //создаем параграф
@@ -53,7 +49,18 @@ document.getElementById('search').addEventListener('input',({target})=>{
         fetch(`https://api.hh.ru/vacancies?no_magic=true&L_save_area=true&text=${text}&excluded_text=vue&professional_role=156&professional_role=160&professional_role=10&professional_role=12&professional_role=150&professional_role=25&professional_role=165&professional_role=34&professional_role=36&professional_role=73&professional_role=155&professional_role=96&professional_role=164&professional_role=104&professional_role=157&professional_role=107&professional_role=112&professional_role=113&professional_role=148&professional_role=114&professional_role=116&professional_role=121&professional_role=124&professional_role=125&professional_role=126&area=1&currency_code=RUR&experience=noExperience&employment=full&employment=part&employment=project&employment=probation&order_by=relevance&search_period=1&items_on_page=100`)
             .then(response => response.json()).then((data) => {
                 console.log(data)
-                document.getElementById('container').innerHTML += `<p>${data}</p>`
+                data.items.forEach(item=>{
+                    document.getElementById('container').innerHTML += `<div class="card"><h1>Вакансия: ${item.vacancy.name}</h1><h2>Адрес: ${item.vacancy.address ? item.vacancy.address : 'не указано'}</h2><h2>Зарплата:${item.vacancy.salary ? item.vacancy.salary.currency == "RUR" ? item.vacancy.salary.from+' '+'руб' : item.vacancy.salary.from+' '+item.vacancy.salary.currency : 'не указано'}</h2><h2>График работы: ${item.vacancy.schedule.name}</h2><h2>Что нужно знать: ${item.vacancy.snippet ? item.vacancy.snippet.requirement : ''}</h2><h2>Чем ты будешь заниматься: ${item.vacancy.snippet.responsibility}</h2><button>выбрать</button></div>`
+                })
+                setTimeout(()=>{
+                    document.querySelectorAll('button').forEach(button=>{
+                        button.addEventListener('click',(event)=>{
+                            console.log(event)
+                            tg.sendData("some string that we need to send");
+                            tg.close()
+                        })
+                    })
+                },500)
             });
     }, 700);
 })
